@@ -9,10 +9,10 @@ public class ThreadTest implements Runnable  {
 		this.synDbTest=synDbTest;
 	}
 
-	@Override
 	public void run() {
 		System.out.println(Thread.currentThread().getName());
 		synDbTest.getIdByClassroomId();
+		
 	}
-	
+
 }
