@@ -71,6 +71,6 @@
         <property name="basePackage" value="com.dao" />  
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
     </bean>  
-	
+    
 
 </beans>
