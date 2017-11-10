@@ -23,6 +23,7 @@
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
     <context:annotation-config />
+    <aop:aspectj-autoproxy proxy-target-class="true" />
     
       
     
