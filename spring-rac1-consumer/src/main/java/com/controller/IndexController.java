@@ -85,6 +85,9 @@ public class IndexController {
 		return synDbTest.getIdByName("dsf");
 	}
 	
+	/**
+	 * @ControllerAnnotation为自定义注解，带有这个注解的方法会被捕捉url和参数，打印出来
+	 */
 	@RequestMapping("/aop")
 	@ResponseBody
 	@ControllerAnnotation
