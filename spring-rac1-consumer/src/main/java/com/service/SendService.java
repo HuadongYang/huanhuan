@@ -12,18 +12,18 @@ public class SendService {
 	@Autowired
 	ChannelFactory senderFactory;
 	
-	//¶ÓÁÐÃû³Æ  
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private final static String QUEUE_NAME = "queue"; 
 	
 	public void send() throws IOException{
 		Connection connection = senderFactory.getConnection();
 		Channel channel = senderFactory.getChennel(connection);
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-		//·¢ËÍµÄÏûÏ¢  
+		//ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½Ï¢  
         String message = "hello world!";  
         channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-        System.out.println("ÒÑ·¢");
-      //¹Ø±ÕÆµµÀºÍÁ¬½Ó  
+        System.out.println("ï¿½Ñ·ï¿½");
+      //ï¿½Ø±ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         channel.close();  
         connection.close();
 	}

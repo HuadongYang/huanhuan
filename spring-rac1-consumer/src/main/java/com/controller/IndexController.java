@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.annotation.ControllerAnnotation;
 import com.common.ThreadTest;
 import com.service.BatchNumTest;
 import com.service.ReceiveService;
@@ -90,7 +89,7 @@ public class IndexController {
 	 */
 	@RequestMapping("/aop")
 	@ResponseBody
-	@ControllerAnnotation
+	//@ControllerAnnotation
 	public void aopTest(@RequestParam("name")String name) throws Exception{
 		System.out.println("开始 方法");
 		System.out.println("结束 方法");
