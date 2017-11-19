@@ -1,5 +1,6 @@
 package com.Util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,22 +17,49 @@ public class DateUtil {
      * @param date
      * @return
      */
-	public static Date dayBefore(Date data){
+	public static Date dayBefore(Date date){
 		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
 		calendar.add(Calendar.DATE,-1);
 		return calendar.getTime();
 	}
 	
 	/**
-     * 日期转字符串
+     * 返回指定日期的后一天
      *
      * @param date
+     * @return
+     */
+	public static Date dayAfter(Date date){
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.DATE,1);
+		return calendar.getTime();
+	}
+	
+	
+	/**
+     * 日期转字符串
+     *
+     * @param dateFormate, date
      * @return
      */
 	public static String dateToString(String dateFormate, Date date){
 		SimpleDateFormat sp=new SimpleDateFormat(dateFormate);
 		return sp.format(date);
 	}
+	
+	/**
+     * 日期转字符串
+     *
+     * @param dataString, formate
+     * @return
+     */
+	public static Date stringToDate(String dataString, String formate) throws ParseException{
+		SimpleDateFormat sdf  =   new  SimpleDateFormat(formate);
+		return sdf.parse(dataString);
+	} 
+	
 	
 	/**
      * 返回指定日期的季度
@@ -131,4 +159,14 @@ public class DateUtil {
         calendar.roll(Calendar.DATE, -1);
         return calendar.getTime();
     }
+    
+    public static Integer dayPoor(Date date1, Date date2){
+    	Calendar calendar = Calendar.getInstance();
+    	calendar.setTime(date1);
+    	int day1 = calendar.get(Calendar.DAY_OF_MONTH);
+    	calendar.setTime(date2);
+    	int day2 = calendar.get(Calendar.DAY_OF_MONTH);
+    	return Math.abs(day1 - day2);
+    }
+
 }

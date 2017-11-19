@@ -28,10 +28,10 @@ public class DeviceTask {
 //		System.out.println("end2");
 //	}
 	
-	@Scheduled(cron="0/15 * * * * ?")
+/*	@Scheduled(cron="0/15 * * * * ?")
 	public void quaterTask() throws IOException{
 		System.out.println("start3");
 		timingInsertService.quaterTask();
 		System.out.println("end3");
-	}
+	}*/
 }

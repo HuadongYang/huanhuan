@@ -32,6 +32,19 @@ public class DmDeviceManager {
 		return jdbcTemplate.queryForList(sql.toString());
 	}
 	
+	public List<Map<String, Object>> getAllDeviceNum(){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "select model_type type, count(id) number,  DATE_FORMAT(produced_date, '%Y-%m-%d') time from dm_device "
+				+ " group by model_type, produced_date order by produced_date " ;
+		return jdbcTemplate.queryForList(sql);
+	}
+	
+	public Integer getLength(){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "select count(1) from dm_device ";
+		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
+	
 	public Integer queryQuaterExist(DmStatisticsDeviceEntity entity){
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "select count(id) from dm_statistics_device where product_time=? and date_type=? ";
@@ -54,6 +67,12 @@ public class DmDeviceManager {
 				dmStatisticsDeviceEntity.getDataNum()
 		};
 		jdbcTemplate.update(sql.toString(),objects);
+	}
+	
+	public void insertData(String sqlData){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "insert into dm_statistics_device (product_time,date_type,data_num) values " + sqlData;
+		jdbcTemplate.update(sql);
 	}
 	
 	public void updateData(DmStatisticsDeviceEntity dmStatisticsDeviceEntity){

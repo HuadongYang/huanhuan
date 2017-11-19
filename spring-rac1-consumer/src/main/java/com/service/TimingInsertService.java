@@ -60,10 +60,6 @@ public class TimingInsertService {
 	}
 
 
-	public void insertDmStatisticsDevice(DmStatisticsDeviceEntity entity){
-		
-	}
-	
 	
 	
 }

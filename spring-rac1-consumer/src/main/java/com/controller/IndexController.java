@@ -1,5 +1,8 @@
 package com.controller;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Controller;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.common.ThreadTest;
 import com.service.BatchNumTest;
+import com.service.DealOldData;
 import com.service.ReceiveService;
 import com.service.RedisServiceTest;
 import com.service.SendService;
@@ -34,6 +38,9 @@ public class IndexController {
 	
 	@Autowired
 	ReceiveService receiveService; 
+	
+	@Autowired
+	DealOldData dealOldData;
 	
 	@RequestMapping("/index")
 	@ResponseBody
@@ -95,7 +102,11 @@ public class IndexController {
 		System.out.println("结束 方法");
 	}
 	
-	
+	@RequestMapping("/dealOldData")
+	@ResponseBody
+	public void dealData() throws ParseException, IOException{
+		dealOldData.dealHistoryData();
+	}
 	
 	
 }
