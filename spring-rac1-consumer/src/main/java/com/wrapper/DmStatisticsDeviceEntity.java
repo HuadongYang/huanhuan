@@ -4,12 +4,12 @@ package com.wrapper;
 public class DmStatisticsDeviceEntity {
 
 	private String productTime;
-	private String dateType;
+	private Integer dateType;
 	private String dataNum;
 	
 	public DmStatisticsDeviceEntity(){}
 	
-	public DmStatisticsDeviceEntity(String productTime, String dateType, String dataNum){
+	public DmStatisticsDeviceEntity(String productTime, Integer dateType, String dataNum){
 		this.productTime = productTime;
 		this.dateType = dateType;
 		this.dataNum = dataNum;
@@ -21,10 +21,10 @@ public class DmStatisticsDeviceEntity {
 	public void setProductTime(String productTime) {
 		this.productTime = productTime;
 	}
-	public String getDateType() {
+	public Integer getDateType() {
 		return dateType;
 	}
-	public void setDateType(String dateType) {
+	public void setDateType(Integer dateType) {
 		this.dateType = dateType;
 	}
 	public String getDataNum() {

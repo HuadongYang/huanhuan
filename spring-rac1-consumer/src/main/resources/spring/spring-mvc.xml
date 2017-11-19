@@ -25,8 +25,7 @@
     <context:annotation-config />
     <aop:aspectj-autoproxy proxy-target-class="true" />
     
-      
-    
+        
     <!-- 对包中（包括子包）的所有类进行自动扫描，以完成bean创建及依赖注入的功能 -->
     <context:component-scan base-package="com.controller">
         <!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
