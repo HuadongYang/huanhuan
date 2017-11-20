@@ -24,7 +24,12 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    
+
+	  <!--others-->
+	  <dependency>
+		  <groupId>joda-time</groupId>
+		  <artifactId>joda-time</artifactId>
+	  </dependency>
 	 <!--spring-->
     <dependency>
 		<groupId>org.springframework</groupId>

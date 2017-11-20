@@ -21,7 +21,7 @@ public class TimingInsertService {
 	DmDeviceManager dmDeviceManager;
 	
 	public void dayTask() throws IOException{
-		Date date = new Date();
+		Date date = DateUtil.dayBefore(new Date());
 		List<Map<String, Object>> list= dmDeviceManager.getDeviceNumByTime(date, date);
 		DmStatisticsDeviceEntity entity = new DmStatisticsDeviceEntity(
 				DateUtil.dateToString(DateUtil.DATE_FORMATE, date),
